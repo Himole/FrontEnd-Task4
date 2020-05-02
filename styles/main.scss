@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+}
+
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+@mixin maxWidth($arg) {
+    @media screen and (max-width: $arg) {
+        @content;
+    }
+}
+
+@mixin minWidth($arg) {
+    @media screen and (min-width: $arg) {
+        @content;
+    }
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background-color: #302f3f;
+    background-image: url('../images/Group\ 19.png'),
+                      url("../images/index-eclipse.png"),
+                      url("../images/Group\ 20.png");
+    background-repeat: no-repeat;
+    background-position:
+        top 13.1rem left 8rem,
+        bottom 0 left 0,
+        bottom 4.1rem right 5.1rem;
+    background-attachment: fixed;
+
+    @include maxWidth(1303px) {
+        background-position:
+        top 33rem left 2.94rem,
+        top 0 left 0,
+        bottom 4.1rem right 5.1rem;
+    }
+
+    @include maxWidth(1185px) {
+        background-position:
+        top 33rem left 2.94rem,
+        top 0 left 0,
+        bottom -1rem right -2rem;
+    }
+
+    h2 {
+        font-weight: 900;
+        font-size: 4.5rem;
+        line-height: 90px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.125rem;
+        line-height: 23px;
+        margin-bottom: 28px;
+    }
+
+    a {
+        text-decoration: none;
+        font-family: 'Muli', sans-serif;
+        min-width: 302px;
+        text-align: center;
+        background-color: #00BFA6;
+        padding: 14px 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 23px;
+        color: black;
+        cursor: pointer;
+        pointer-events: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    .agreeBox {
+        margin-bottom: 20px;
+    }
+
+    .pop-up {
+        position: absolute;
+        text-align: center;
+        background-color: #00BFA6;
+        padding: 40px;
+        color: black;
+        display: none;
+
+        h1,
+        p {
+            max-width: 90%;
+        }
+
+        p {
+            text-align: left;
+        }
+
+        .cancel {
+            position: absolute;
+            right: 40px;
+            top: 20px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+}
+
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+@mixin maxWidth($arg) {
+    @media screen and (max-width: $arg) {
+        @content;
+    }
+}
+
+@mixin minWidth($arg) {
+    @media screen and (min-width: $arg) {
+        @content;
+    }
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background-color: #302f3f;
+    background-image: url('../images/Group\ 19.png'),
+                      url("../images/Ellipse\ 1.png"),
+                      url("../images/Group\ 20.png");
+    background-repeat: no-repeat;
+    background-position:
+        top 13.1rem left 2.94rem,
+        top 0 left 0,
+        bottom 4.1rem right 5.1rem;
+    background-attachment: fixed;
+
+    @include maxWidth(1303px) {
+        background-position:
+        top 33rem left 2.94rem,
+        top 0 left 0,
+        bottom 4.1rem right 5.1rem;
+    }
+
+    @include maxWidth(1185px) {
+        background-position:
+        top 33rem left 2.94rem,
+        top 0 left 0,
+        bottom -1rem right -2rem;
+    }
+
+    @include maxWidth(850px) {
+        background-image: none;
+    }
+
+    .score-board {
+        display: flex;
+        flex-direction: column;
+        align-items: right;
+        text-align: center;
+        max-width: 128px;
+        padding-top: 3.125rem;
+        padding-bottom: 2.5rem;
+
+        @include maxWidth(664px) {
+            padding-bottom: 1rem;
+        }
+
+        p {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 30px
+        }
+
+        div {
+            font-weight: 900;
+            font-size: 3rem;
+            line-height: 60px;
+            padding: 1rem 3.125rem;
+            background: #00BFA6;
+        }
+    }
+
+    .quiz {
+        max-width: 39rem;
+        margin: 0 auto;
+
+        @include maxWidth(664px) {
+            max-width: 90%;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            line-height: 40px;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 50px);
+            grid-gap: 20px;
+            margin-top: 2.2rem;
+
+            @include maxWidth(664px) {
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(4, 50px);
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                background: #3D3C4B;
+                cursor: pointer;
+            }
+
+            .correct {
+                background-color: #27AE60;
+                color: white;
+            }
+
+            .incorrect {
+                background-color: #EB5757;
+                color: white;
+            }
+        }
+    }
+
+    a {
+        display: none;
+        text-align: center;
+        width: 39rem;
+        margin: 34px auto 0;
+        border: 2px solid #3F3D56;
+        padding: 15px 0;
+        cursor: pointer;
+
+        @include maxWidth(664px) {
+            max-width: 90%;
+        }
+    }
+
+    .pop-up {
+        position: absolute;
+        top: 20%;
+        left: 33%;
+        background-color: white;
+        color: #3F3D56;
+        text-align: center;
+        padding: 79px 130px;
+        border-radius: 4px;
+        display: none;
+
+        h2 {
+            margin-bottom: 41px;
+        }
+
+        button {
+            font-family: 'Muli', sans-serif;
+            display: block;
+            margin: 0 auto;
+            min-width: 302px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 23px;
+            margin-bottom: 20px;
+            padding: 14px 0;
+            outline: none;
+            border: none;
+            color: #3F3D56;
+            cursor: pointer;
+        }
+
+        .jp {
+            background-color: transparent;
+            border: 2px solid #3F3D56;
+            color: #333333;
+        }
+    }
+}

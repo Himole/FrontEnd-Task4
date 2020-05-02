@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  background-color: #302f3f;
+  background-image: url("../images/Group 19.png"), url("../images/Ellipse 1.png"), url("../images/Group 20.png");
+  background-repeat: no-repeat;
+  background-position: top 13.1rem left 2.94rem, top 0 left 0, bottom 4.1rem right 5.1rem;
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 1303px) {
+  main {
+    background-position: top 33rem left 2.94rem, top 0 left 0, bottom 4.1rem right 5.1rem;
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  main {
+    background-position: top 33rem left 2.94rem, top 0 left 0, bottom -1rem right -2rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  main {
+    background-image: none;
+  }
+}
+
+main .score-board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+  text-align: center;
+  max-width: 128px;
+  padding-top: 3.125rem;
+  padding-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 664px) {
+  main .score-board {
+    padding-bottom: 1rem;
+  }
+}
+
+main .score-board p {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+
+main .score-board div {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 60px;
+  padding: 1rem 3.125rem;
+  background: #00BFA6;
+}
+
+main .quiz {
+  max-width: 39rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 664px) {
+  main .quiz {
+    max-width: 90%;
+  }
+}
+
+main .quiz h2 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 40px;
+}
+
+main .quiz .answers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (50px)[2];
+      grid-template-rows: repeat(2, 50px);
+  grid-gap: 20px;
+  margin-top: 2.2rem;
+}
+
+@media screen and (max-width: 664px) {
+  main .quiz .answers {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: (50px)[4];
+        grid-template-rows: repeat(4, 50px);
+  }
+}
+
+main .quiz .answers div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #3D3C4B;
+  cursor: pointer;
+}
+
+main .quiz .answers .correct {
+  background-color: #27AE60;
+  color: white;
+}
+
+main .quiz .answers .incorrect {
+  background-color: #EB5757;
+  color: white;
+}
+
+main a {
+  display: none;
+  text-align: center;
+  width: 39rem;
+  margin: 34px auto 0;
+  border: 2px solid #3F3D56;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 664px) {
+  main a {
+    max-width: 90%;
+  }
+}
+
+main .pop-up {
+  position: absolute;
+  top: 20%;
+  left: 33%;
+  background-color: white;
+  color: #3F3D56;
+  text-align: center;
+  padding: 79px 130px;
+  border-radius: 4px;
+  display: none;
+}
+
+main .pop-up h2 {
+  margin-bottom: 41px;
+}
+
+main .pop-up button {
+  font-family: 'Muli', sans-serif;
+  display: block;
+  margin: 0 auto;
+  min-width: 302px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 23px;
+  margin-bottom: 20px;
+  padding: 14px 0;
+  outline: none;
+  border: none;
+  color: #3F3D56;
+  cursor: pointer;
+}
+
+main .pop-up .jp {
+  background-color: transparent;
+  border: 2px solid #3F3D56;
+  color: #333333;
+}
+/*# sourceMappingURL=game.css.map */
