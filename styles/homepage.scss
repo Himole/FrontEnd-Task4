@@ -66,6 +66,10 @@ main {
         font-size: 4.5rem;
         line-height: 90px;
         margin-bottom: 20px;
+
+        @include maxWidth(400px) {
+            font-size: 3.5rem;
+        }
     }
 
     p {

@@ -4,18 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Muli', sans-serif;
-}
-
-h2,
-h3,
-p {
-    margin: 0;
-}
-
 @mixin maxWidth($arg) {
     @media screen and (max-width: $arg) {
         @content;
@@ -26,6 +14,23 @@ p {
     @media screen and (min-width: $arg) {
         @content;
     }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+
+    @include maxWidth(630px) {
+        background-color: #302f3f;
+        padding-bottom: 90px;
+    }
+}
+
+h2,
+h3,
+p {
+    margin: 0;
 }
 
 main {
@@ -178,6 +183,67 @@ main {
         padding: 79px 130px;
         border-radius: 4px;
         display: none;
+
+        @include maxWidth(1315px) {
+            left: 25%;
+        }
+
+        @include maxWidth(1060px) {
+            left: 20%;
+        }
+
+        @include maxWidth(864px) {
+            left: 15%;
+        }
+
+        @include maxWidth(833px) {
+            left: 12%;
+        }
+
+        @include maxWidth(714px) {
+            left: 9%;
+        }
+
+        @include maxWidth(681px) {
+            left: 6%;
+        }
+
+        @include maxWidth(663px) {
+            left: 10%;
+            padding: 79px 80px;
+        }
+
+        @include maxWidth(615px) {
+            left: 15%;
+            padding: 79px 50px;
+        }
+
+        @include maxWidth(560px) {
+            left: 10%;
+        }
+
+        @include maxWidth(507px) {
+            left: 8%;
+        }
+
+        @include maxWidth(489px) {
+            left: 10%;
+            padding: 79px 20px;
+        }
+
+        @include maxWidth(438px) {
+            left: 7%;
+        }
+
+        @include maxWidth(403px) {
+            left: 3%;
+        }
+
+        @include maxWidth(399px) {
+            top: 15%;
+            left: 0;
+            right: 0;
+        }
 
         h2 {
             margin-bottom: 41px;

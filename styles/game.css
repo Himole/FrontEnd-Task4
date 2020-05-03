@@ -10,6 +10,13 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
+@media screen and (max-width: 630px) {
+  body {
+    background-color: #302f3f;
+    padding-bottom: 90px;
+  }
+}
+
 h2,
 h3,
 p {
@@ -194,6 +201,95 @@ main .pop-up {
   padding: 79px 130px;
   border-radius: 4px;
   display: none;
+}
+
+@media screen and (max-width: 1315px) {
+  main .pop-up {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  main .pop-up {
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 864px) {
+  main .pop-up {
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 833px) {
+  main .pop-up {
+    left: 12%;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  main .pop-up {
+    left: 9%;
+  }
+}
+
+@media screen and (max-width: 681px) {
+  main .pop-up {
+    left: 6%;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  main .pop-up {
+    left: 10%;
+    padding: 79px 80px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  main .pop-up {
+    left: 15%;
+    padding: 79px 50px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  main .pop-up {
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 507px) {
+  main .pop-up {
+    left: 8%;
+  }
+}
+
+@media screen and (max-width: 489px) {
+  main .pop-up {
+    left: 10%;
+    padding: 79px 20px;
+  }
+}
+
+@media screen and (max-width: 438px) {
+  main .pop-up {
+    left: 7%;
+  }
+}
+
+@media screen and (max-width: 403px) {
+  main .pop-up {
+    left: 3%;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  main .pop-up {
+    top: 15%;
+    left: 0;
+    right: 0;
+  }
 }
 
 main .pop-up h2 {

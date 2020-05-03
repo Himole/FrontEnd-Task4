@@ -11,6 +11,7 @@ popName.innerText = `${username}, you dull o!`;
 
 let latestQuestion = {};
 let score = 0;
+let wrong = 0;
 let popUpScore = 0;
 let scoreMark = 1;
 let questionsToBeAnswered = [];
@@ -102,12 +103,14 @@ iqAnswers.forEach ( answer => {
 
         selectedChoice.classList.add(classToApply);
 
+        if ( answer.dataset['number'] == iqQuestions[0].answer ) {
+            answer.classList.add('correct');
+        }
+
         if ( e.target.dataset['number'] == iqQuestions[0].answer ) {
             e.target.classList.add('correct');
             popUpScore++;
         }
-
-        console.log(popUpScore);
 
         answer.parentElement.style.pointerEvents = "none";
 
@@ -117,8 +120,14 @@ iqAnswers.forEach ( answer => {
 
         iqQuestions.shift();
 
+        if( iqQuestions.length === 0 )  {
+            localStorage.setItem("recentScore", score);
+        }
 
         nextBtn.addEventListener("click", () => {
+            if ( answer.dataset['number'] == iqQuestions[0].answer ) {
+                answer.classList.remove('correct');
+            }
             if( iqQuestions.length === 3 ) {
                 if ( popUpScore < 2 ){
                     popUp.style.display = "block";
@@ -127,14 +136,23 @@ iqAnswers.forEach ( answer => {
             
             if( iqQuestions.length === 0 ) {
                 return window.location.assign("/endgame.html");
-                localStorage.setItem("recentScore", score);
             }
+            localStorage.setItem("wrongScore", wrong);
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
             selectedChoice.classList.remove(classToApply);
             nextBtn.style.display = "none";
         })
+
+        if ( classToApply !== 'correct' ) {
+            wrong++
+            console.log(wrong)
+        }
     });
+
+    if( iqQuestions.length === 0 )  {
+        localStorage.setItem("recentScore", score);
+    }
 
 
     addScore = num => {
