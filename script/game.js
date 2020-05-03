@@ -130,7 +130,7 @@ iqAnswers.forEach ( answer => {
             }
             
             if( iqQuestions.length === 0 ) {
-                return window.location.assign("endgame.html");
+                return  window.location.href = "endgame.html";
             }
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
