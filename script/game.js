@@ -128,7 +128,7 @@ iqAnswers.forEach ( answer => {
             }
             
             if( iqQuestions.length === 0 ) {
-                return window.location.assign("/endgame.html");
+                return window.location.assign("../endgame.html");
             }
             localStorage.setItem("wrongScore", wrong);
             getNewQuestion();
