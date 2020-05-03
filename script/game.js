@@ -3,9 +3,15 @@ const question = document.querySelector('.question');
 const iqAnswers = document.querySelectorAll(".answer");
 const nextBtn = document.querySelector(".next");
 const popUp = document.querySelector(".pop-up");
+const popClose = document.querySelector(".continue");
+const popName = document.querySelector(".pop-text");
+username = localStorage.getItem('username');
+
+popName.innerText = `${username}, you dull o!`;
 
 let latestQuestion = {};
 let score = 0;
+let popUpScore = 0;
 let scoreMark = 1;
 let questionsToBeAnswered = [];
 let iqQuestions = [
@@ -86,8 +92,6 @@ iqAnswers.forEach ( answer => {
 
         let classToApply = 'incorrect';
 
-        console.log(selectedAnswer, iqQuestions[0].answer);
-
         if( selectedAnswer == iqQuestions[0].answer ) {
              classToApply = 'correct';
         }
@@ -100,7 +104,10 @@ iqAnswers.forEach ( answer => {
 
         if ( e.target.dataset['number'] == iqQuestions[0].answer ) {
             e.target.classList.add('correct');
+            popUpScore++;
         }
+
+        console.log(popUpScore);
 
         answer.parentElement.style.pointerEvents = "none";
 
@@ -110,9 +117,17 @@ iqAnswers.forEach ( answer => {
 
         iqQuestions.shift();
 
+
         nextBtn.addEventListener("click", () => {
+            if( iqQuestions.length === 3 ) {
+                if ( popUpScore < 2 ){
+                    popUp.style.display = "block";
+                }
+            }
+            
             if( iqQuestions.length === 0 ) {
-                return window.location.assign("/end.html");
+                return window.location.assign("/endgame.html");
+                localStorage.setItem("recentScore", score);
             }
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
@@ -121,11 +136,16 @@ iqAnswers.forEach ( answer => {
         })
     });
 
+
     addScore = num => {
         score += num;
         scoreDisplay.innerText = score;
     }
 });
+
+popClose.addEventListener('click', () => {
+    popUp.style.display = "none";
+})
 
 iqTest();
 

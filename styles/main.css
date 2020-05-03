@@ -66,7 +66,35 @@ main p {
   margin-bottom: 28px;
 }
 
-main a {
+main input {
+  min-width: 302px;
+  padding: 16px 58px;
+  background: #3D3C4B;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFF;
+}
+
+main input::-webkit-input-placeholder {
+  color: #6A6974;
+}
+
+main input:-ms-input-placeholder {
+  color: #6A6974;
+}
+
+main input::-ms-input-placeholder {
+  color: #6A6974;
+}
+
+main input::placeholder {
+  color: #6A6974;
+}
+
+main button {
   text-decoration: none;
   font-family: 'Muli', sans-serif;
   min-width: 302px;
@@ -78,11 +106,19 @@ main a {
   line-height: 23px;
   color: black;
   cursor: pointer;
-  pointer-events: none;
+  outline: none;
+  border: none;
 }
 
-main label {
+main button[disabled]:hover {
+  cursor: not-allowed;
+}
+
+main .agree {
   cursor: pointer;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
 }
 
 main .agreeBox {

@@ -58,9 +58,29 @@ main .score-board {
       -ms-flex-align: right;
           align-items: right;
   text-align: center;
-  max-width: 128px;
+  width: 128px;
   padding-top: 3.125rem;
   padding-bottom: 2.5rem;
+  margin-left: 80%;
+}
+
+@media screen and (max-width: 872px) {
+  main .score-board {
+    margin-left: 75%;
+  }
+}
+
+@media screen and (max-width: 642px) {
+  main .score-board {
+    margin-left: 70%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  main .score-board {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 664px) {
@@ -73,6 +93,7 @@ main .score-board p {
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 30px;
+  margin-bottom: 5px;
 }
 
 main .score-board div {
@@ -177,6 +198,12 @@ main .pop-up {
 
 main .pop-up h2 {
   margin-bottom: 41px;
+}
+
+main .pop-up p {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 main .pop-up button {
