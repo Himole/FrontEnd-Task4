@@ -86,6 +86,8 @@ getNewQuestion = () => {
 };
 
 iqAnswers.forEach ( answer => {
+
+    console.log(answer.dataset['number'])
     answer.addEventListener('click', e => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
@@ -128,7 +130,7 @@ iqAnswers.forEach ( answer => {
             }
             
             if( iqQuestions.length === 0 ) {
-                return window.location.assign("../endgame.html");
+                return window.location.assign("endgame.html");
             }
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
@@ -138,7 +140,6 @@ iqAnswers.forEach ( answer => {
 
         if ( classToApply !== 'correct' ) {
             wrong++
-            console.log(wrong)
         }
         localStorage.setItem("wrongScore", wrong);
     });
