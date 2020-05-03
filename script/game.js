@@ -33,14 +33,6 @@ let iqQuestions = [
         answer : 3
     },
     {
-        question : "How many states are in united states?",
-        answers1 : 50,
-        answers2 : 30,
-        answers3 : 10,
-        answers4 : 90,
-        answer : 1
-    },
-    {
         question : "Who is JEFF?",
         answers1 : "A Person",
         answers2 : "A Boy",
@@ -87,7 +79,13 @@ getNewQuestion = () => {
 
 iqAnswers.forEach ( answer => {
 
-    console.log(answer.dataset['number'])
+    // addColor = () => {
+    //     console.log( answer.dataset['number'] )
+    //     //  if ( answer.dataset['number'] === iqQuestions[0].answer ) {
+    //     //     console.log("yes")
+    //     // }
+    // }
+
     answer.addEventListener('click', e => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
@@ -115,6 +113,8 @@ iqAnswers.forEach ( answer => {
         if ( classToApply === 'correct' ) {
             addScore(scoreMark);
         }
+
+        // addColor();
 
         iqQuestions.shift();
 
