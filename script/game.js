@@ -130,7 +130,6 @@ iqAnswers.forEach ( answer => {
             if( iqQuestions.length === 0 ) {
                 return window.location.assign("../endgame.html");
             }
-            localStorage.setItem("wrongScore", wrong);
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
             selectedChoice.classList.remove(classToApply);
@@ -141,6 +140,7 @@ iqAnswers.forEach ( answer => {
             wrong++
             console.log(wrong)
         }
+        localStorage.setItem("wrongScore", wrong);
     });
 
     if( iqQuestions.length === 0 )  {
