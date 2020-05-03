@@ -103,10 +103,6 @@ iqAnswers.forEach ( answer => {
 
         selectedChoice.classList.add(classToApply);
 
-        if ( answer.dataset['number'] == iqQuestions[0].answer ) {
-            answer.classList.add('correct');
-        }
-
         if ( e.target.dataset['number'] == iqQuestions[0].answer ) {
             e.target.classList.add('correct');
             popUpScore++;
@@ -125,9 +121,6 @@ iqAnswers.forEach ( answer => {
         }
 
         nextBtn.addEventListener("click", () => {
-            if ( answer.dataset['number'] == iqQuestions[0].answer ) {
-                answer.classList.remove('correct');
-            }
             if( iqQuestions.length === 3 ) {
                 if ( popUpScore < 2 ){
                     popUp.style.display = "block";
