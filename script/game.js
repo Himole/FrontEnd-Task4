@@ -5,6 +5,8 @@ const nextBtn = document.querySelector(".next");
 const popUp = document.querySelector(".pop-up");
 const popClose = document.querySelector(".continue");
 const popName = document.querySelector(".pop-text");
+const loader = document.querySelector(".loader");
+const game = document.querySelector(".game");
 username = localStorage.getItem('username');
 
 popName.innerText = `${username}, you dull o!`;
@@ -63,6 +65,8 @@ iqTest = () => {
     score = 0;
     questionsToBeAnswered = [...iqQuestions];
     getNewQuestion();
+    game.style.display = "block"
+    loader.style.display = "none"
 }
 
 getNewQuestion = () => {
@@ -78,13 +82,6 @@ getNewQuestion = () => {
 };
 
 iqAnswers.forEach ( answer => {
-
-    // addColor = () => {
-    //     console.log( answer.dataset['number'] )
-    //     //  if ( answer.dataset['number'] === iqQuestions[0].answer ) {
-    //     //     console.log("yes")
-    //     // }
-    // }
 
     answer.addEventListener('click', e => {
         const selectedChoice = e.target;
@@ -113,9 +110,7 @@ iqAnswers.forEach ( answer => {
         if ( classToApply === 'correct' ) {
             addScore(scoreMark);
         }
-
-        // addColor();
-
+    
         iqQuestions.shift();
 
         if( iqQuestions.length === 0 )  {

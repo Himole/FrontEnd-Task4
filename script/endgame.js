@@ -21,3 +21,9 @@ scoreText.innerText = score;
 correctText.innerText = `${score} Correct Answers`;
 wrongText.innerText = `${wrong} Wrong Answers`;
 
+let restartBtn = document.querySelector("#btn");
+
+restartBtn.addEventListener("click", () => {
+    location.reload();
+})
+
