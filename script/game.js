@@ -119,13 +119,18 @@ iqAnswers.forEach ( answer => {
 
         nextBtn.addEventListener("click", () => {
             if( iqQuestions.length === 3 ) {
-                if ( popUpScore < 2 ){
+                if ( popUpScore < 1 ){
                     popUp.style.display = "block";
                 }
+            }
+
+            if( iqQuestions.length === 1 ) {
+                nextBtn.innerText = "Check your result";
             }
             
             if( iqQuestions.length === 0 ) {
                 return  window.location.href = "endgame.html";
+                nextBtn.innerText = "Check your result";
             }
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
