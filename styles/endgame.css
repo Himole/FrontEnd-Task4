@@ -59,13 +59,28 @@ main {
   }
 }
 
+@media screen and (max-width: 775px) {
+  main {
+    background-image: url("../images/endgame eclipse.png");
+    background-position: top 0 right 0;
+  }
+}
+
 main h2 {
   max-width: 600px;
+  padding: 0 30px;
   font-weight: 900;
   font-size: 2rem;
   line-height: 40px;
   margin-bottom: 25px;
   text-align: center;
+}
+
+@media screen and (max-width: 435px) {
+  main h2 {
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
 }
 
 main p {

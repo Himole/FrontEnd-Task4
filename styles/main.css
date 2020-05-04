@@ -53,6 +53,19 @@ main {
   }
 }
 
+@media screen and (max-width: 920px) {
+  main {
+    background-position: top 35rem left 0, top 0 left 0, bottom -2rem right -2rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  main {
+    background-image: url("../images/index-eclipse.png"), url("../images/Group 20.png");
+    background-position: top 0 left 0, bottom -2rem right -2rem;
+  }
+}
+
 main h2 {
   font-weight: 900;
   font-size: 4.5rem;
@@ -119,6 +132,7 @@ main .agree {
   font-size: 1rem;
   margin: 0;
   text-align: center;
+  color: #EB5757;
 }
 
 main .agreeBox {

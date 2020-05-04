@@ -88,6 +88,12 @@ iqAnswers.forEach ( answer => {
         const selectedAnswer = selectedChoice.dataset['number'];
         nextBtn.style.display = "block";
 
+        // Array.from(e.target.parentElement.children).map( answer => {
+        //     if ( iqQuestions[0].answer == answer.dataset['number'] ) {
+        //         answer.style.backgroundColor = "Red"
+        //     }
+        // })
+
         let classToApply = 'incorrect';
 
         if( selectedAnswer == iqQuestions[0].answer ) {
@@ -132,11 +138,13 @@ iqAnswers.forEach ( answer => {
                 return  window.location.href = "endgame.html";
                 nextBtn.innerText = "Check your result";
             }
+
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
             selectedChoice.classList.remove(classToApply);
             nextBtn.style.display = "none";
         })
+
 
         if ( classToApply !== 'correct' ) {
             wrong++

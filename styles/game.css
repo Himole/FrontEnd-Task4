@@ -62,39 +62,15 @@ main .score-board {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: right;
-      -ms-flex-align: right;
-          align-items: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
-  width: 128px;
   padding-top: 3.125rem;
   padding-bottom: 2.5rem;
-  margin-left: 80%;
-}
-
-@media screen and (max-width: 872px) {
-  main .score-board {
-    margin-left: 75%;
-  }
-}
-
-@media screen and (max-width: 642px) {
-  main .score-board {
-    margin-left: 70%;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  main .score-board {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-@media screen and (max-width: 664px) {
-  main .score-board {
-    padding-bottom: 1rem;
-  }
 }
 
 main .score-board p {
@@ -128,6 +104,19 @@ main .quiz h2 {
   font-weight: 900;
   font-size: 1.5rem;
   line-height: 40px;
+}
+
+@media screen and (max-width: 640px) {
+  main .quiz h2 {
+    font-size: 1.2rem;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 529px) {
+  main .quiz h2 {
+    line-height: 30px;
+  }
 }
 
 main .quiz .answers {
