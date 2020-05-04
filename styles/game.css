@@ -32,19 +32,25 @@ main {
   background-color: #302f3f;
   background-image: url("../images/Group 19.png"), url("../images/Ellipse 1.png"), url("../images/Group 20.png");
   background-repeat: no-repeat;
-  background-position: top 13.1rem left 2.94rem, top 0 left 0, bottom 4.1rem right 5.1rem;
+  background-position: top 13.1rem left 2.94rem,
+ top 0 left 0,
+ bottom 4.1rem right 5.1rem;
   background-attachment: fixed;
 }
 
 @media screen and (max-width: 1303px) {
   main {
-    background-position: top 33rem left 2.94rem, top 0 left 0, bottom 4.1rem right 5.1rem;
+    background-position: top 33rem left 2.94rem,
+ top 0 left 0,
+ bottom 4.1rem right 5.1rem;
   }
 }
 
 @media screen and (max-width: 1185px) {
   main {
-    background-position: top 33rem left 2.94rem, top 0 left 0, bottom -1rem right -2rem;
+    background-position: top 33rem left 2.94rem,
+ top 0 left 0,
+ bottom -1rem right -2rem;
   }
 }
 
@@ -349,4 +355,3 @@ main .pop-up .jp {
             transform: rotate(360deg);
   }
 }
-/*# sourceMappingURL=game.css.map */

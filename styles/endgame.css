@@ -37,25 +37,33 @@ main {
   background-color: #302f3f;
   background-image: url("../images/Group 18.png"), url("../images/endgame eclipse.png"), url("../images/Group 20.png");
   background-repeat: no-repeat;
-  background-position: bottom 5rem left 8rem, top 0 right 0, bottom 4.1rem right 5.1rem;
+  background-position: bottom 5rem left 8rem,
+ top 0 right 0,
+ bottom 4.1rem right 5.1rem;
   background-attachment: fixed;
 }
 
 @media screen and (max-width: 1115px) {
   main {
-    background-position: bottom 5rem left 4rem, top 0 right 0, bottom 4.1rem right 5.1rem;
+    background-position: bottom 5rem left 4rem,
+ top 0 right 0,
+ bottom 4.1rem right 5.1rem;
   }
 }
 
 @media screen and (max-width: 956px) {
   main {
-    background-position: bottom 3rem left 2rem, top 0 right 0, bottom 4.1rem right 5.1rem;
+    background-position: bottom 3rem left 2rem,
+ top 0 right 0,
+ bottom 4.1rem right 5.1rem;
   }
 }
 
 @media screen and (max-width: 956px) {
   main {
-    background-position: bottom 0rem left 0rem, top 0 right 0, bottom 0 right 0;
+    background-position: bottom 0rem left 0rem,
+ top 0 right 0,
+ bottom 0 right 0;
   }
 }
 
@@ -136,4 +144,3 @@ main a {
   color: white;
   padding: 14px 0;
 }
-/*# sourceMappingURL=endgame.css.map */
