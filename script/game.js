@@ -88,17 +88,17 @@ iqAnswers.forEach ( answer => {
         const selectedAnswer = selectedChoice.dataset['number'];
         nextBtn.style.display = "block";
 
-        // Array.from(e.target.parentElement.children).map( answer => {
-        //     if ( iqQuestions[0].answer == answer.dataset['number'] ) {
-        //         answer.style.backgroundColor = "Red"
-        //     }
-        // })
-
         let classToApply = 'incorrect';
 
         if( selectedAnswer == iqQuestions[0].answer ) {
              classToApply = 'correct';
         }
+
+        iqAnswers.forEach( option => {
+            if( option.dataset['number'] == iqQuestions[0].answer ) {
+                option.classList.add('correct');
+            }
+        })
 
         addCorrect = (data) => {
             data.classList.add('correct');
@@ -119,11 +119,15 @@ iqAnswers.forEach ( answer => {
     
         iqQuestions.shift();
 
-        if( iqQuestions.length === 0 )  {
-            localStorage.setItem("recentScore", score);
-        }
-
         nextBtn.addEventListener("click", () => {
+            iqAnswers.forEach( option => {
+                option.classList.remove('correct');
+            })
+
+            if( iqQuestions.length === 0 )  {
+                localStorage.setItem("recentScore", score);
+            }
+
             if( iqQuestions.length === 3 ) {
                 if ( popUpScore < 1 ){
                     popUp.style.display = "block";
@@ -143,6 +147,7 @@ iqAnswers.forEach ( answer => {
             answer.parentElement.style.pointerEvents = "all";
             selectedChoice.classList.remove(classToApply);
             nextBtn.style.display = "none";
+
         })
 
 
