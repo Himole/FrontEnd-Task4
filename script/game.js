@@ -16,7 +16,6 @@ let score = 0;
 let wrong = 0;
 let popUpScore = 0;
 let scoreMark = 1;
-let questionsToBeAnswered = [];
 let iqQuestions = [
     {
         question : "The day after the day after tomorrow is four days before Monday. What day is it today?",
@@ -63,7 +62,6 @@ let iqQuestions = [
 
 iqTest = () => {
     score = 0;
-    questionsToBeAnswered = [...iqQuestions];
     getNewQuestion();
     game.style.display = "block"
     loader.style.display = "none"
@@ -92,6 +90,11 @@ iqAnswers.forEach ( answer => {
 
         if( selectedAnswer == iqQuestions[0].answer ) {
              classToApply = 'correct';
+             addScore(scoreMark);
+
+        } else {
+            selectedChoice.classList.add(classToApply);
+            popUpScore++;
         }
 
         iqAnswers.forEach( option => {
@@ -100,36 +103,17 @@ iqAnswers.forEach ( answer => {
             }
         })
 
-        addCorrect = (data) => {
-            data.classList.add('correct');
-        }
-
-        selectedChoice.classList.add(classToApply);
-
-        if ( e.target.dataset['number'] == iqQuestions[0].answer ) {
-            e.target.classList.add('correct');
-            popUpScore++;
-        }
-
         answer.parentElement.style.pointerEvents = "none";
 
-        if ( classToApply === 'correct' ) {
-            addScore(scoreMark);
-        }
-    
         iqQuestions.shift();
 
         nextBtn.addEventListener("click", () => {
-            iqAnswers.forEach( option => {
-                option.classList.remove('correct');
-            })
-
             if( iqQuestions.length === 0 )  {
                 localStorage.setItem("recentScore", score);
             }
 
             if( iqQuestions.length === 3 ) {
-                if ( popUpScore < 1 ){
+                if ( popUpScore > 1 ){
                     popUp.style.display = "block";
                 }
             }
@@ -137,11 +121,16 @@ iqAnswers.forEach ( answer => {
             if( iqQuestions.length === 1 ) {
                 nextBtn.innerText = "Check your result";
             }
-            
+
             if( iqQuestions.length === 0 ) {
                 return  window.location.href = "endgame.html";
                 nextBtn.innerText = "Check your result";
             }
+
+            iqAnswers.forEach( option => {
+                option.classList.remove('correct');
+            })
+
 
             getNewQuestion();
             answer.parentElement.style.pointerEvents = "all";
