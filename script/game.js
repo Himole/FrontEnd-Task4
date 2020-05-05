@@ -67,12 +67,14 @@ iqTest = () => {
     loader.style.display = "none"
 }
 
+// Generates new questions.
 getNewQuestion = () => {
     let quest = iqQuestions[0].question;
     let latestQuestion = iqQuestions[0];
 
     question.innerText = quest;
 
+    // Loops through the DOM element to insert the questions and answers.
     iqAnswers.forEach( answer => {
         const number = answer.dataset['number'];
         answer.innerText = latestQuestion['answers' + number];
@@ -88,69 +90,68 @@ iqAnswers.forEach ( answer => {
 
         let classToApply = 'incorrect';
 
-        if( selectedAnswer == iqQuestions[0].answer ) {
-             classToApply = 'correct';
-             addScore(scoreMark);
+        // If user selects the right answer add a classList of "CORRECT".
+        selectedAnswer == iqQuestions[0].answer ? (
+            classToApply = 'correct',
+            addScore(scoreMark)
+        ) : (
+            // If user selects the wrong option add a classList of "INCORRECT"
+            selectedChoice.classList.add(classToApply),
+            popUpScore++
+        )
 
-        } else {
-            selectedChoice.classList.add(classToApply);
-            popUpScore++;
-        }
 
         iqAnswers.forEach( option => {
-            if( option.dataset['number'] == iqQuestions[0].answer ) {
-                option.classList.add('correct');
-            }
+            if ( option.dataset['number'] == iqQuestions[0].answer ) option.classList.add('correct');
         })
 
         answer.parentElement.style.pointerEvents = "none";
 
+        // Removes the questions from the array.
         iqQuestions.shift();
 
         nextBtn.addEventListener("click", () => {
-            if( iqQuestions.length === 0 )  {
-                localStorage.setItem("recentScore", score);
-            }
+            // If "iqQuestions" length equals zero store the score to the local storage.
+            if( iqQuestions.length === 0 ) localStorage.setItem("recentScore", score);
 
+            // If "popUpScore" less than 1, pop up the popUp dialog
             if( iqQuestions.length === 3 ) {
-                if ( popUpScore > 1 ){
-                    popUp.style.display = "block";
-                }
+                if ( popUpScore > 1 ) popUp.style.display = "block";
             }
 
-            if( iqQuestions.length === 1 ) {
-                nextBtn.innerText = "Check your result";
-            }
+            if( iqQuestions.length === 1 ) nextBtn.innerText = "Check your result";
 
+            // If question array length equals zero, take me to the end game screen.
             if( iqQuestions.length === 0 ) {
                 return  window.location.href = "endgame.html";
                 nextBtn.innerText = "Check your result";
             }
 
+            // Removes the classList "CORRECT".
             iqAnswers.forEach( option => {
                 option.classList.remove('correct');
             })
 
-
+            // Calls the function getNewQuestion
             getNewQuestion();
+
             answer.parentElement.style.pointerEvents = "all";
             selectedChoice.classList.remove(classToApply);
             nextBtn.style.display = "none";
 
         })
 
+        // If classList is "INCORRECT" increment wrong by 1.
+        if ( classToApply !== 'correct' ) wrong++;
 
-        if ( classToApply !== 'correct' ) {
-            wrong++
-        }
+        // Stores the wrong score in the localstorage.
         localStorage.setItem("wrongScore", wrong);
+
+        // Stores the score in the localstorage.
+        if( iqQuestions.length === 0 )  localStorage.setItem("recentScore", score);
     });
 
-    if( iqQuestions.length === 0 )  {
-        localStorage.setItem("recentScore", score);
-    }
-
-
+    // Creates a function that updates the user score
     addScore = num => {
         score += num;
         scoreDisplay.innerText = score;
